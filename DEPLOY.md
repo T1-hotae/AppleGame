@@ -1,18 +1,49 @@
 # 🚀 배포 가이드
 
+## GitHub 연결
+
+이 프로젝트는 이미 **origin**으로 GitHub와 연결되어 있습니다.
+
+- **원격 저장소**: `https://github.com/T1-hotae/AppleGame.git`
+- **브랜치**: `main`
+
+### 변경사항을 GitHub에 올리기
+
+```bash
+git add .
+git commit -m "커밋 메시지"
+git push origin main
+```
+
+### 다른 GitHub 저장소에 연결하려면
+
+```bash
+# 기존 origin 제거 후 새 저장소 연결
+git remote remove origin
+git remote add origin https://github.com/사용자명/저장소명.git
+git push -u origin main
+```
+
+(GitHub에서 새 저장소를 만든 뒤 위 URL을 해당 저장소 주소로 바꾸세요.)
+
+---
+
 ## 환경 변수 설정
 
 ### 1. Vercel 배포
 
 1. [Vercel](https://vercel.com)에 로그인
-2. 새 프로젝트 생성 → GitHub 저장소 연결
-3. **Environment Variables** 설정:
-   - `SUPABASE_URL`: `https://yxnpyecehzovuefoipkw.supabase.co`
-   - `SUPABASE_KEY`: (Supabase 프로젝트의 anon key)
-4. **Build Settings**:
+2. **Add New** → **Project** → GitHub 저장소 연결 후 Import
+3. **Environment Variables**에서 다음 변수 추가:
+   - `SUPABASE_URL`: Supabase 프로젝트 URL (예: `https://xxxxx.supabase.co`)
+   - `SUPABASE_KEY`: Supabase **anon** (public) key  
+   (Supabase 대시보드 → Settings → API에서 확인)
+4. **Build Settings**는 `vercel.json`에 이미 설정됨:
    - Build Command: `npm run build`
-   - Output Directory: `.`
-5. Deploy 클릭
+   - Output Directory: `dist`
+5. **Deploy** 클릭
+
+배포 시 `npm run build`가 실행되며, 환경 변수로 `dist/config.js`가 생성된 뒤 `dist` 폴더가 배포됩니다.
 
 ### 2. Netlify 배포
 
