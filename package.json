@@ -1,0 +1,22 @@
+{
+  "name": "apple-flip-game",
+  "version": "1.0.0",
+  "description": "사과 뒤집기 게임 - Canvas API와 Supabase를 사용한 메모리 카드 게임",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build.js",
+    "prebuild": "node build.js"
+  },
+  "keywords": [
+    "game",
+    "memory",
+    "canvas",
+    "supabase"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
+
